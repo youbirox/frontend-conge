@@ -1,16 +1,16 @@
 {
     "/users":{
-        "target":"http://192.168.1.41:3000",
+        "target":"https://artex-conge.herokuapp.com/",
         "secure":   false
     },
 
     "/conges":{
-        "target":"http://192.168.1.41:3000",
+        "target":"https://artex-conge.herokuapp.com/",
         "secure":   false
     },
 
     "/historiques":{
-        "target":"http://192.168.1.41:3000",
+        "target":"https://artex-conge.herokuapp.com/",
         "secure":   false
     },
 
