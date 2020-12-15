@@ -6,7 +6,7 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import * as moment from 'moment';
 
 import { MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material'
-import { any } from 'sequelize/types/lib/operators';
+//import { any } from 'sequelize/types/lib/operators';
 
 @Component({
   selector: 'app-demande-conge',
