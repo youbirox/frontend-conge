@@ -1,0 +1,21 @@
+{
+    "/users":{
+        "target":"http://192.168.1.41:3000",
+        "secure":   false
+    },
+
+    "/conges":{
+        "target":"http://192.168.1.41:3000",
+        "secure":   false
+    },
+
+    "/historiques":{
+        "target":"http://192.168.1.41:3000",
+        "secure":   false
+    },
+
+    "jourferie":{
+        "target":"https://calendrier.api.gouv.fr/jours-feries/guadeloupe/2021.json",
+        "secure": false
+    }
+}

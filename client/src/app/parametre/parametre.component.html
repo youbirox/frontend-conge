@@ -1,0 +1,119 @@
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+<div class="row">
+    
+
+<mat-tab-group>
+    <mat-tab label="Type Congé"> 
+        <div class="form-group">
+            <div class="input-group">
+              <label>
+                  <br>
+                <p style="color: #4e4a4a;" class="label-txt">Type Congé :</p>
+                <input style="width: 200px;height: 48px;" class="form-control"  type="text" >
+                <div class="line-box">
+                  <div class="line"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button style="padding: 10px;width: 200px;border:1px solid black !important ;background-color: white;color: black;" type="submit">Ajouter</button>
+    
+    </mat-tab>
+    <mat-tab label="Etat Congé"> 
+        <div class="form-group">
+            <div class="input-group">
+              <label>
+                  <br>
+                <p style="color: #4e4a4a;" class="label-txt">Etat Congé :</p>
+                <input style="width: 200px;height: 48px;" class="form-control"  type="text"  >
+                <div class="line-box">
+                  <div class="line"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button style="padding: 10px;width: 200px;border:1px solid black !important ;background-color: white;color: black;" type="submit">Ajouter</button>
+
+    </mat-tab>
+    <mat-tab label="Type Utilisateur"> 
+        <div class="form-group">
+            <div class="input-group">
+              <label>
+                  <br>
+                <p style="color: #4e4a4a;" class="label-txt">Type Utilisateur :</p>
+                <input style="width: 200px;height: 48px;" class="form-control"  type="text" >
+                <div class="line-box">
+                  <div class="line"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button style="padding: 10px;width: 200px;border:1px solid black !important ;background-color: white;color: black;" type="submit">Ajouter</button>
+
+
+    </mat-tab>
+    <mat-tab label="Groupe Utilisateur"> 
+        <div class="form-group">
+            <div class="input-group">
+              <label>
+                  <br>
+                <p style="color: #4e4a4a;" class="label-txt">Groupe Utilisateur :</p>
+                <input style="width: 200px;height: 48px;" class="form-control"  type="text" >
+                <div class="line-box">
+                  <div class="line"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <button style="padding: 10px;width: 200px;border:1px solid black !important ;background-color: white;color: black;" type="submit">Ajouter</button>
+
+    
+    </mat-tab>
+    <mat-tab label="API Jours Fériés"> 
+      <div class="row">
+        <div class="col">
+          <form (submit)="Afficher()">
+          <div class="form-group">
+            
+              <div class="input-group">
+                <label>
+                    <br>
+                  <p style="color: #4e4a4a;" class="label-txt">API Jours Fériés</p>
+                  <p style="color: #4e4a4a;" class="label-txt">Afficher les jours fériés d'année :</p>
+                  <input  type="number" min="2000" max="2025" [(ngModel)]="annee" placeholder="Saisir une année " style="width: 200px;height: 48px;" class="form-control" name="annee"   >
+                  <div class="line-box">
+                    <div class="line"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+    
+           
+            <button style="padding: 10px;width: 200px;border:1px solid black !important ;background-color: white;color: black;" type="submit">Afficher</button>
+    
+            </form>
+           
+        </div>
+        <div  class="col">
+          <div *ngFor="let APIF of API | keyvalue">
+            <p>{{ APIF.key }} : <span><em>{{ APIF.value }}</em></span></p>
+             
+          </div>
+          <p>{{APIError}}</p>
+        </div>
+      </div>
+     
+       
+  </mat-tab>
+  </mat-tab-group>
+</div>
+
+</div>
+

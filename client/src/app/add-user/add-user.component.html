@@ -1,0 +1,58 @@
+
+<div class="col-md-8 mt-5 mx-auto" style="position: relative;left: 75px;top: -50px;height: 500px;">
+    
+  <button style="border: 1px;float: right;background-color: red;color: white;border-radius: 11px;" mat-raised-button matDialogClose>X</button>
+    
+    <form  (submit)="register()">
+      <h1 class="h3 mb-3 font-weight-normal">Ajouter un utilisateur</h1>
+
+<div class="row">
+  <div class="col-md">
+   
+    <div class="form-group">
+      <label  style="color: #797979bf;"for="name">Prenom</label>
+      <input style="height: 54px;" type="text" class="form-control" name="first_name" placeholder="Enter votre Prenom" [(ngModel)]="credentials.first_name">
+    </div>
+    <div class="form-group">
+      <label style="color: #797979bf;" for="name">Nom</label>
+      <input style="height: 54px;" type="text" class="form-control" name="last_name" placeholder="Enter votre Nom" [(ngModel)]="credentials.last_name">
+    </div>
+    <div class="form-group">
+      <label style="color: #797979bf;" for="email">Email</label>
+      <input style="height: 54px;" type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+    </div>
+  </div>
+  <div class="col-md">
+ 
+    <div class="form-group">
+      <label style="color: #797979bf;" for="nom">date_recrutement</label>
+      <input style="height: 54px;"  type="date" class="form-control" name="nom" placeholder="Date Recrutement" [(ngModel)]="credentials.date_recrutement">
+    </div>
+    <div class="form-group">
+      <label style="color: #797979bf;" for="password">Password</label>
+      <input style="height: 54px;" type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+
+      
+    </div>
+    <div class="form-group">
+      <label style="color: #797979bf;" for="password">Type</label>
+      <div class="form-group">
+        <select style="height: 54px;" name="type" class="form-control" [(ngModel)]="credentials.type">
+            <option disabled="">Type</option>
+             <option name="admin">ADMINISTRATEUR</option>
+             <option name="admin">Résponsable Gestion</option>
+             <option name="RT">Résponsable TLV</option>
+             <option name="RQ">Résponsable Qualife</option>
+             <option name="AL">AGENT TLV</option>
+             <option name="AQ">AGENT Qualife</option>
+             
+        </select>
+    </div>      
+      </div>
+  </div>
+</div>
+
+     
+      <button type="submit" style="color:#9b9b9b;padding: 15px;width: 530px;background-color: white;border: 1px solid #9b9b9b;" class="btn btn-lg btn-primary btn-block">Enregistrer!</button>
+    </form>
+  </div>
