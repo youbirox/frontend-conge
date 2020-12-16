@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --prod",
+    "build": "ng build",
     "ng": "ng",
     "start": "node server.js",
     "test": "ng test",
