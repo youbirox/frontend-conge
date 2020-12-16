@@ -34,9 +34,9 @@ export class EditcongeComponent implements OnInit {
   Historys
   Etat
   details:UserDetails
-  @ViewChild(DataTableDirective,{static:false}) dtElement: DataTableDirective;
-  @ViewChild(MatSort,{static:false}) sort: MatSort;
-  @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
+  @ViewChild(DataTableDirective) dtElement: DataTableDirective;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   Allconge: CongeDetails
   constructor(private auth: AuthentificationService, private formBuilder: FormBuilder,private dialog:MatDialog,@Optional() public dialogRef: MatDialogRef<EditcongeComponent>,@Inject(MAT_DIALOG_DATA) data) 
   { 

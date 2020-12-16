@@ -36,9 +36,9 @@ export class UtilisateursComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
 
-  @ViewChild(DataTableDirective,{static:false}) dtElement: DataTableDirective;
-  @ViewChild(MatSort,{static:false}) sort: MatSort;
-  @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
+  @ViewChild(DataTableDirective) dtElement: DataTableDirective;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 details: UserDetails
   constructor(private auth: AuthentificationService, private router: Router,private dialog:MatDialog,@Optional() public dialogRef: MatDialogRef<AddUserComponent>) { }
