@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CongeValideComponent } from './conge-valide.component';
 
@@ -6,7 +6,7 @@ describe('CongeValideComponent', () => {
   let component: CongeValideComponent;
   let fixture: ComponentFixture<CongeValideComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CongeValideComponent ]
     })

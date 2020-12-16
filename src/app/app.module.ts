@@ -229,7 +229,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes),
     ConfirmationPopoverModule.forRoot({
       confirmButtonType:'primary'
     }),

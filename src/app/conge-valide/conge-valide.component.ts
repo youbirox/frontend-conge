@@ -37,9 +37,9 @@ export class CongeValideComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
 
-  @ViewChild(DataTableDirective) dtElement: DataTableDirective;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(DataTableDirective,{static:false}) dtElement: DataTableDirective;
+  @ViewChild(MatSort,{static:false}) sort: MatSort;
+  @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
   Allconge: CongeDetails
   
   Edited=false
