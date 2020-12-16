@@ -1,0 +1,125 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+    <div class="row">
+    
+        
+      <div class="col">
+        
+        <h1 style="padding: 10px;background-image: linear-gradient(45deg, #9E1B38, #F05350 );width: 430px;color: white;">Liste des congés réfusés</h1>
+       
+        <br>
+        
+
+    <!--   <div class="search-div">
+         
+           <a style="background-color: #55aceac7;color: white;padding: 10px;" class="add" (click)="onCreate()"><mat-icon>add</mat-icon> Ajouter un utilisateur</a> 
+          
+        </div>--> 
+        <div class="row">
+          <div class="col-sm-3">
+            <button *ngIf="verifier()" (click)="allconge()" class="button button4" type="button"> Afficher tout les congé réfusés</button>
+  
+          </div>
+        </div>
+       
+        <div class="mat-elevation-z8">
+
+         
+          
+          <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="Etat">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Etat</mat-header-cell>
+              <mat-cell style="margin: 10px;background-image: linear-gradient(45deg, #9E1B38, #F05350 );padding: 3px;color: white;position: relative;font-size: 17px;font-variant: all-small-caps;border-radius: 9px;" *matCellDef="let element">
+                <p style="text-align: center;margin-left: 15px;height: 10px !important;">{{element.Etat}}</p></mat-cell>
+            </ng-container>
+            <!--<ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> id</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+            </ng-container>-->
+            <ng-container matColumnDef="Nom">
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Nom</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.user.first_name}}</mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="date_debut">
+              <mat-header-cell *matHeaderCellDef  mat-sort-header>Date Début</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.date_debut}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="date_fin">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Date Retour</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.date_fin}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Nbrjours">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre Jours</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.Nbrjours}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="commentaire">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Commentaire</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.commentaire}}</mat-cell>
+              </ng-container>
+              
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="created">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Date création</mat-header-cell>
+              <mat-cell *matCellDef="let element" >{{element.created}}</mat-cell>
+            </ng-container>
+        
+            <ng-container  matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+              <mat-cell   *matCellDef="let element">
+               <a  class="green-icon" (click)="getid(element.id)"><mat-icon style="color: green;cursor: pointer;">launch</mat-icon></a> 
+                <a   class="red-icon"   (click)="delete(element.id)"><mat-icon style="color: red;cursor: pointer;">delete_outline</mat-icon></a>
+                
+              </mat-cell>
+            </ng-container>
+         
+            <ng-container matColumnDef="loading">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                Loading data...
+              </mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                No data.
+              </mat-footer-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <!--<mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>-->
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+         
+        </div>
+        
+        
+       
+        <br> <br>
+     
+      </div>
+      
+        
+      
+    </div>
+  </div>
+  
+  
+

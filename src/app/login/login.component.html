@@ -1,0 +1,50 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div style="
+      padding: 20px;
+      background-color: #f44336; /* Red */
+      color: white;
+      float: left;
+      left: 35%;
+      margin-bottom: 15px;
+  " class="alert">
+        
+        <span style="
+        margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+        " class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        L'application en cours de maintenance  .
+      <p style="font-size: 11px;">(Vous pouvez toujours  consulter votre espace)</p>
+      
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      
+      <div class="col-md-6 mt-5 mx-auto" style="border-radius: 14px;background-color: #343a40a8;padding: 20px 30px 20px 20px;color: white;">
+        <form (submit)="login()">
+          <h1 style="background-color: #000000a6;padding: 15px;border-radius: 10px;" class="h3 mb-3 font-weight-normal" >Veuillez vous connecter</h1>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter Mot de passe" [(ngModel)]="credentials.password">
+          </div>
+          <button type="submit" style="background-color: white;color: black;font-size:23px;width: 163px;padding: 15px;" class="btn btn-lg btn-primary btn-block">Se connecter</button>
+          <div *ngIf='err' class="alert alert-danger">{{err}}</div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
