@@ -1,0 +1,122 @@
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+
+    </div>
+    <div class="col-md">
+      <p>Chercher par utilisateur :</p>
+      <input type="text" class="form-control" #myInput  (keypress)="applyFilter(myInput.value)" />
+
+    </div>
+    <div class="col-md">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <br>
+      <div class="search-div">
+       
+         <a style="background-color: #056ae8d9;color: white;padding: 10px;" class="add" (click)="onCreate()"><mat-icon>add</mat-icon> Créer un utilisateur</a> 
+        
+      </div>
+     
+      <div class="mat-elevation-z8">
+         
+        
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="first_name">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>Prenom</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.first_name}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="last_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.last_name}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+             <a class="green-icon" (click)="GetIdUser(element.id)"><mat-icon style="color: green;">launch</mat-icon></a> 
+              <a  class="red-icon"  (click)="delete(element.id)"><mat-icon style="color: red;">delete_outline</mat-icon></a>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading data...
+            </mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              No data.
+            </mat-footer-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <!--<mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+          <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>-->
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+      </div>
+      
+      
+     
+      <br> <br>
+      
+      
+      <!--<table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" >
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Prenom</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Type</th>
+              <th>Creé le</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of details">
+              <td>{{ user.id }}</td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.type }}</td>
+              <td>{{ user.created }}</td>
+              <td style="display: flex;">
+                  <button type="button" class="btn btn-primary"><i class="fa fa-list"></i> </button>
+                  <button type="button" class="btn btn-success"><i class="fa fa-edit"></i> </button>
+                  <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+                  
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      -->
+    </div>
+    
+      
+    
+  </div>
+</div>
+
